@@ -12,7 +12,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    <title>DOM Exercise</title>
+    <title>If Else Exercise</title>
 </head>
 
 <body>
@@ -52,38 +52,28 @@
                                         placeholder="Nhập số thứ ba">
                                 </div>
                             </div>
-                            <button class="btn btn-primary" id="num-order" type="button">Sắp xếp</button>
-                            <input id="numOrder">
+                            <button class="btn btn-primary d-block mb-2" id="num-order" type="button">Sắp xếp</button>
+                            <input class="form-control" id="numOrder">
                         </form>
                     </div>
                     <div class="tab-pane fade" id="exercise-02" role="tabpanel" aria-labelledby="excercise-02-tab">
-                        <h2>Tính giá trị trung bình</h2>
+                        <h2>Chương trình "chào hỏi"</h2>
                         <form>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <div class="col-4">
-                                    <input id="ex02-num1" type="number" class="form-control col-12"
-                                        placeholder="Nhập số thứ 1">
+                                    <select id="people" class="form-control">
+                                        <option value="L">Chọn thành viên</option>
+                                        <option value="B">Bố</option>
+                                        <option value="M">Mẹ</option>
+                                        <option value="A">Anh Trai</option>
+                                        <option value="E">Em Gái</option>
+                                    </select>
                                 </div>
-                                <div class="col-4">
-                                    <input id="ex02-num2" type="number" class="form-control col-12"
-                                        placeholder="Nhập số thứ 2">
-                                </div>
-                                <div class="col-4">
-                                    <input id="ex02-num3" type="number" class="form-control col-12"
-                                        placeholder="Nhập số thứ 3">
-                                </div>
-                                <div class="col-4">
-                                    <input id="ex02-num4" type="number" class="form-control col-12"
-                                        placeholder="Nhập số thứ 4">
-                                </div>
-                                <div class="col-4">
-                                    <input id="ex02-num5" type="number" class="form-control col-12"
-                                        placeholder="Nhập số thứ 5">
+                                <div class="col-6">
+                                    <button id="greetingPeople" type="button" class="btn btn-primary">Gửi lời chào</button>
                                 </div>
                             </div>
-                            <button id="average-calc" type="button" class="btn btn-primary">Tính trung bình</button>
-                            <label for="average">Giá trị trung bình là: </label>
-                            <input type="text" id="average">
+                            <input type="text" id="greeting" class="form-control db-block">
                         </form>
                     </div>
                     <div class="tab-pane fade" id="exercise-03" role="tabpanel" aria-labelledby="exercise-03-tab">
