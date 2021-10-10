@@ -81,7 +81,7 @@ document.getElementById("greetingPeople").onclick = greetPeople;
  *  3 số nguyên dương num1, num2, num3
  * Khối 2:
  *  Gán giá trị cho biến num1, num2, num3, numEven, numOdd
- *  Lập công thức so sánh phần dư khi chia 2:
+ *  Lập công thức điều kiện so sánh phần dư khi chia 2:
  *      if num1%2 == 0 => numEven+=1 else numOdd+=1;
  * Khối 3:
  *  Số lượng số chẵn numEven, số lẻ numOdd
@@ -99,3 +99,46 @@ function countOddEven() {
     document.getElementById("numOddEven").value = "Có " + numEven + " số chẵn và " + numOdd + " số lẻ";
 }
 document.getElementById("countOddEven").onclick = countOddEven;
+
+// Ex 04
+/**
+ * Khối 1:
+ *  Chiều dài 3 cạnh tam giác edge1, edge2, edge3
+ * Khối 2:
+ *  Gán giá trị cho biến edge1, edge2, , triangleType
+ *  Lập công thức điều kiện:
+ *  Nếu 3 cạnh = nhau là tam giác đều
+ *      if edge1 == edge2 && edge1 == edge3 => triangleType = "Tam giác đều"
+ *  Nếu chỉ có 2 cạnh = nhau là tam giác cân
+ *      else if edge2 == edge3 || edge1 == edge2 || edge1 == edge3 => triangeType = "Tam giác cân"
+ *  Nếu không thỏa 2 điều kiện trên thì lập công thức tìm cạnh lớn nhất
+ *      edge1 > edge2 && edge1 > edge3
+ *  Lập công thức điều kiện so sánh
+ *      Math.pow(edge1,2) == Math.pow(edge2,2) + Math.pow(edge3,2) => triangleType = "Tam giác vuông"
+ *  Còn lại là tam giác khác
+ *      triangleType = "Tam giác khác"
+ * Khối 3:
+ *  Loại tam giác
+ */
+
+function identTriangle() {
+    var edge1 = Number(document.getElementById("edge1").value);
+    var edge2 = Number(document.getElementById("edge2").value);
+    var edge3 = Number(document.getElementById("edge3").value);
+    var triangleType = "";
+    if (edge1 == edge2 && edge1 == edge3) {
+        triangleType = "Tam giác đều";
+    } else if (edge2 == edge3 || edge1 == edge2 || edge1 == edge3) {
+        triangleType = "Tam giác cân";
+    } else {
+        if (edge1 > edge2 && edge1 > edge3) {
+            Math.pow(edge1,2) == Math.pow(edge2,2) + Math.pow(edge3,2) ? triangleType = "Tam giác vuông" : triangleType = "Tam giác khác";
+        } else if (edge2 > edge1 && edge2 > edge3) {
+            Math.pow(edge2,2) == Math.pow(edge1,2) + Math.pow(edge3,2) ? triangleType = "Tam giác vuông" : triangleType = "Tam giác khác";
+        } else {
+            Math.pow(edge3,2) == Math.pow(edge1,2) + Math.pow(edge2,2) ? triangleType = "Tam giác vuông" : triangleType = "Tam giác khác";
+        }
+    }
+    document.getElementById("triangleType").value = triangleType;
+}
+document.getElementById("identifyTriangle").onclick = identTriangle;
