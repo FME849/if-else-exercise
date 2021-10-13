@@ -113,12 +113,20 @@
                     <div class="tab-pane fade" id="exercise-05" role="tabpanel" aria-labelledby="exercise-05-tab">
                         <h2>Tính tổng 2 ký số</h2>
                         <form>
-                            <label for="ex05-num">Số có 2 ký số:</label>
-                            <input type="number" class="form-control my-2" id="ex05-num"
-                                placeholder="Nhập số có 2 ký số">
-                            <button class="btn btn-primary" id="sum-calc" type="button">Tính tổng</button>
-                            <label for="sumNum">Tổng là: </label>
-                            <input type="text" id="sumNum">
+                            <div class="row my-2">
+                                <div class="col-4">
+                                    <input type="number" class="form-control" id="ex05-num1"            placeholder="Nhập ngày">
+                                </div>
+                                <div class="col-4">
+                                    <input type="number" class="form-control" id="ex05-num2"            placeholder="Nhập tháng">
+                                </div>
+                                <div class="col-4">
+                                    <input type="number" class="form-control" id="ex05-num3"            placeholder="Nhập năm">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" id="btnYesterday" type="button">Ngày hôm qua</button>
+                            <button class="btn btn-primary" id="btnTomorrow" type="button">Ngày mai</button>
+                            <input type="text" id="date" class="form-control db-block mt-2">
                         </form>
                     </div>
                 </div>

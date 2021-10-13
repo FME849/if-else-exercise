@@ -142,3 +142,158 @@ function identTriangle() {
     document.getElementById("triangleType").value = triangleType;
 }
 document.getElementById("identifyTriangle").onclick = identTriangle;
+
+// Ex 05
+/**
+ * Khối 1:
+ *  Ngày , tháng, năm (numDay, numMonth, numYear)
+ * Khối 2:
+ *  Gán giá trị cho biến numDay, numMonth, numYear 
+ *  Function ngày hôm sau:
+ *  Lập switch case cho numMonth:
+ *      tháng 1, 3, 5, 7, 8, 10:
+ *          Lập biểu thức điều kiện:
+ *              numDay <= 31 ? {numDay == 31 ? {numDay = 1; numMonth+=1} : {numDay+=1}} : {"ngày không hợp lệ"}
+ *               {}
+ *      tháng 4, 6, 9, 11:
+ *          Lập biểu thức điều kiện:
+ *              numDay == 30 ? {numDay = 1; numMonth+=1} : {numDay+=1}
+ *      tháng 2:
+ *          Lập biểu thức điều kiện:
+ *              numDay == 28 ? {numDay = 1; numMonth+=1} : {numDay+=1}
+ *      tháng 12:
+ *          Lập biểu thức điều kiện:
+ *              numDay == 31 ? {numDay = 1; numMonth =1; numYear+=1} : {numDay+=1}
+ *  Function ngày hôm trước:
+ *  Lập switch case cho numMonth:
+ *      tháng 2, 4, 6, 8, 9, 11:
+ *          Lập biểu thức điều kiện:
+ *              numDay == 1 ? {numDay = 31; numMonth-=1} : {numDay-=1}
+ *      tháng 5, 7, 10, 12: 
+ *          Lập biểu thức điều kiện:
+ *              numDay == 1 ? {numDay = 30; numMonth-=1} : {numDay-=1}
+ *      tháng 1: 
+ *          numDay = 31; numMonth = 12; numYear-=1
+ *      tháng 3:
+ *          numDay = 28; numMonth = 2          
+ * Khối 3:
+ *  Ngày mai / ngày hôm trước
+ */
+
+function dayTomorrow() {
+    var numDay = Number(document.getElementById("ex05-num1").value);
+    var numMonth = Number(document.getElementById("ex05-num2").value);
+    var numYear = Number(document.getElementById("ex05-num3").value);
+    var date = ""
+    switch (numMonth) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+            if (numDay <= 31) {
+                numDay == 31 ? (numDay = 1, numMonth+=1) : (numDay+=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ"
+            }
+                break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (numDay <=30) {
+                numDay == 30 ? (numDay = 1, numMonth+=1) : (numDay+=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ"
+            }
+            break;
+        case 2:
+            if (numDay <= 28) {
+                numDay == 28 ? (numDay = 1, numMonth+=1) : (numDay+=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ"
+            } 
+            break;
+        case 12:
+            if (numDay <= 31) {
+                numDay == 31 ? (numDay = 1, numMonth =1, numYear+=1) : (numDay+=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ"
+            }
+            break;
+    }
+    document.getElementById("date").value = date
+}
+
+function dayYesterday() {
+    var numDay = Number(document.getElementById("ex05-num1").value);
+    var numMonth = Number(document.getElementById("ex05-num2").value);
+    var numYear = Number(document.getElementById("ex05-num3").value);
+    var date = ""
+    switch (numMonth) {
+        case 2:
+            if (numDay <= 28) {
+                numDay == 1 ? (numDay = 31, numMonth-=1) : (numDay-=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ";
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (numDay <= 30) {
+                numDay == 1 ? (numDay = 31, numMonth-=1) : (numDay-=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ";
+            }
+            break;
+        case 8:
+            if (numDay <= 31) {
+                numDay == 1 ? (numDay = 31, numMonth-=1) : (numDay-=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ"; 
+            }
+            break;
+        case 5:
+        case 7:
+        case 10:
+        case 12:
+            if (numDay <= 30) {
+                numDay == 1 ? (numDay = 30, numMonth-=1) :
+                (numDay-=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ";
+            }
+            break;
+        case 1: 
+            if (numDay <= 31){
+            numDay == 1 ? (numDay = 31, numMonth = 12, numYear-=1) : (numDay-=1);
+            date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ";
+            }
+            break;
+        case 3:
+            if (numDay <= 31){
+                numDay == 1 ? (numDay = 28, numMonth-=1) : (numDay-=1);
+                date = numDay + " / " + numMonth + " / " + numYear;
+            } else {
+                date = "Ngày không hợp lệ";
+            }
+            break;
+    }
+    document.getElementById("date").value = date
+}
+
+document.getElementById("btnTomorrow").onclick = dayTomorrow;
+document.getElementById("btnYesterday").onclick = dayYesterday;
